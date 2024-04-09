@@ -2,7 +2,7 @@
 package studentdriver;
 
 
-public class StudentFees {
+public abstract class StudentFees {
     private String studentName;
     private int studentID;
     private boolean isEnrolled;
