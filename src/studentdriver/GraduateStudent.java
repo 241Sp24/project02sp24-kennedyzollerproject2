@@ -27,6 +27,7 @@ public class GraduateStudent extends StudentFees{
         super(studentName,studentID,isEnrolled);
         this.isGraduateAssistant = isGraduateAssistant;
         this.coursesEnrolled = coursesEnrolled;
+        graduateAssistantType = "";
         
     }
     
