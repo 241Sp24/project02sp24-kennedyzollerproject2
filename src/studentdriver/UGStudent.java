@@ -9,18 +9,16 @@ package studentdriver;
  * @author S559619
  */
 
-public class UGstudent {
+public class UGstudent extends StudentFees{
     private double scholarshipAmount;
     private int coursesEnrolled;
     private boolean hasScholarship;
     private double ADDITIONAL_FEE = 820.70;
     
     
-    public UGstudent(String studentName, int studentID, boolean isEnrolled, boolean hasScholarship, 
-        double scholarshipAmount, int coursesEnrolled){
-        this.studentName = studentName;
-        this.studentID = studentID;
-        this.isEnrolled = isEnrolled;
+    public UGstudent(String studentName, int studentID, boolean isEnrolled, 
+        boolean hasScholarship, double scholarshipAmount, int coursesEnrolled){
+        super(studentName,studentID,isEnrolled);
         this.hasScholarship = hasScholarship;
         this.scholarshipAmount = scholarshipAmount;
         this.coursesEnrolled = coursesEnrolled;
@@ -39,10 +37,14 @@ public class UGstudent {
     }
     
     public double getPayableAmount(){
-        return payableAmount;
+        
+        
+        return ((super.getPayableAmount() * coursesEnrolled) + ADDITIONAL_FEE)- scholarshipAmount;
     }
     
     public String toString(){
-        return 
+        
+        return "Scholarship: "  + this.hasScholarship + "\nScholarship Amount: " + this.scholarshipAmount + 
+                "\nCourses Enrolled: " + this.coursesEnrolled + "\nPayable Amount: " + getPayableAmount();
     }
 }

@@ -10,7 +10,9 @@ public abstract class StudentFees {
     private double PER_CREDIT_FEE = 543.50;
     
     public StudentFees(String studentName, int studentID, boolean isEnrolled){
-        
+        this.studentName=studentName;
+        this.studentID = studentID;
+        this.isEnrolled = isEnrolled;
         
     }
     public String getStudentName(){
@@ -48,6 +50,10 @@ public abstract class StudentFees {
      */
     public void setIsEnrolled(boolean isEnrolled) {
         this.isEnrolled = isEnrolled;
+    }
+    public double getPayableAmount(){
+        double tuition = CREDITS_PER_COURSE * PER_CREDIT_FEE;
+        return tuition;
     }
     
     

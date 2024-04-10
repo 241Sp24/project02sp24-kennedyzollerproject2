@@ -8,7 +8,7 @@ package studentdriver;
  *
  * @author S559619
  */
-public class GraduateStudent {
+public class GraduateStudent extends StudentFees{
     private int coursesEnrolled;
     private boolean isGraduateAssistant;
     private String graduateAssistantType;
@@ -16,9 +16,7 @@ public class GraduateStudent {
     
     public GraduateStudent(String studentName, int studentID, boolean isEnrolled, boolean isGraduateAssistant, 
             String graduateAssistantType, int coursesEnrolled){
-        this.studentName = studentName;
-        this.studentID = studentID;
-        this.isEnrolled = isEnrolled;
+        super(studentName,studentID,isEnrolled);
         this.isGraduateAssistant = isGraduateAssistant;
         this.graduateAssistantType = graduateAssistantType;
         this.coursesEnrolled = coursesEnrolled;
@@ -26,6 +24,9 @@ public class GraduateStudent {
     
     public GraduateStudent(String studentName, int studentID, boolean isEnrolled, 
             boolean isGraduateAssistant, int coursesEnrolled){
+        super(studentName,studentID,isEnrolled);
+        this.isGraduateAssistant = isGraduateAssistant;
+        this.coursesEnrolled = coursesEnrolled;
         
     }
     
@@ -38,11 +39,20 @@ public class GraduateStudent {
     }
     
     public double getPayableAmount(){
-        return payableAmount;
+        if (graduateAssistantType.equals("full")){
+               return ADDITIONAL_FEES;
+        }
+        else if(graduateAssistantType.equals("half")){
+            return (super.getPayableAmount() / 2)+ADDITIONAL_FEES;
+        }
+        else{    
+        return super.getPayableAmount()+ADDITIONAL_FEES;
+        }
     }
     
     public String toString(){
-        return
+        return "Graduate Assistant: " + this.isGraduateAssistant + "\nGraduate assistant type: " + this.graduateAssistantType + 
+                "\ncourses enrolled: " + this.coursesEnrolled + "\nPayable amount: " + getPayableAmount();
     }
                    
 }

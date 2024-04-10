@@ -8,22 +8,20 @@ package studentdriver;
  *
  * @author S559619
  */
-public class OnlineStudent {
+public class OnlineStudent extends StudentFees{
     private int noOfMonths;
     private double MONTHLY_FEE = 1245.25;
     
     public OnlineStudent(String studentName, int studentID, boolean isEnrolled, int noOfMonths){
-        this.studentName = studentName;
-        this.studentID = studentID;
-        this.isEnrolled = isEnrolled;
+        super(studentName,studentID,isEnrolled);
         this.noOfMonths = noOfMonths;
     }
     
     public double getPayableAmount(){
-        return payableAmount;
+        return noOfMonths * MONTHLY_FEE;
     }
     
     public String toString(){
-        return 
+        return "No of months: " + this.noOfMonths + "\nPayableAmount: " + getPayableAmount();
     }
 }
