@@ -23,7 +23,7 @@ public class GraduateStudent extends StudentFees{
     }
     
     public GraduateStudent(String studentName, int studentID, boolean isEnrolled, 
-            boolean isGraduateAssistant, int coursesEnrolled){
+        boolean isGraduateAssistant, int coursesEnrolled){
         super(studentName,studentID,isEnrolled);
         this.isGraduateAssistant = isGraduateAssistant;
         this.coursesEnrolled = coursesEnrolled;
@@ -44,10 +44,10 @@ public class GraduateStudent extends StudentFees{
                return ADDITIONAL_FEES;
         }
         else if(graduateAssistantType.equals("half")){
-            return (super.getPayableAmount() / 2)+ADDITIONAL_FEES;
+            return (super.getPayableAmount() / 2)+ ADDITIONAL_FEES;
         }
         else{    
-        return super.getPayableAmount()+ADDITIONAL_FEES;
+        return super.getPayableAmount()+ ADDITIONAL_FEES;
         }
     }
     

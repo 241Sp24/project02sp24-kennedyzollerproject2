@@ -18,7 +18,11 @@ public class UGstudent extends StudentFees{
     
     public UGstudent(String studentName, int studentID, boolean isEnrolled, 
         boolean hasScholarship, double scholarshipAmount, int coursesEnrolled){
-        super(studentName,studentID,isEnrolled);
+        this(studentID,studentName,isEnrolled, coursesEnrolled, hasScholarship, scholarshipAmount);
+    }
+
+    public UGstudent(int studentID, String studentName, boolean isEnrolled, int coursesEnrolled, boolean hasScholarship, double scholarshipAmount) {
+        super(studentName, studentID, isEnrolled);
         this.hasScholarship = hasScholarship;
         this.scholarshipAmount = scholarshipAmount;
         this.coursesEnrolled = coursesEnrolled;
@@ -37,9 +41,7 @@ public class UGstudent extends StudentFees{
     }
     
     public double getPayableAmount(){
-        
-        
-        return ((super.getPayableAmount() * coursesEnrolled) + ADDITIONAL_FEE)- scholarshipAmount;
+        return ((super.getPayableAmount() * coursesEnrolled) + ADDITIONAL_FEE) - scholarshipAmount;
     }
     
     public String toString(){
