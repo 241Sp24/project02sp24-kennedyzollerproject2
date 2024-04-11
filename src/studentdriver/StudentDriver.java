@@ -46,7 +46,7 @@ public class StudentDriver {
                 int coursesEnrolled = Integer.parseInt(dataArray[3]);
                 boolean hasScholarship = Boolean.parseBoolean(dataArray[4]);
                 double scholarshipAmount = Double.parseDouble(dataArray[5]);
-                students[x] = new UGstudent(studentID, studentName, isEnrolled, coursesEnrolled, hasScholarship, scholarshipAmount);
+                students[x] = new UGstudent(studentName, studentID, isEnrolled, coursesEnrolled, hasScholarship, scholarshipAmount);
                 x++;
             }
            
@@ -61,6 +61,7 @@ public class StudentDriver {
                     int coursesEnrolled = Integer.parseInt(dataArray[3]);
                     boolean isGraduateAssistant = Boolean.parseBoolean(dataArray[4]);
                     String graduateAssistantType = dataArray[5];
+                    students[x] = new GraduateStudent(studentName, studentID, isEnrolled, coursesEnrolled, isGraduateAssistant, graduateAssistantType);
                     x++;
                 }
                 //else statement to parse the grad students that aren't an assistant
@@ -70,6 +71,7 @@ public class StudentDriver {
                     boolean isEnrolled = Boolean.parseBoolean(dataArray[2]);
                     int coursesEnrolled = Integer.parseInt(dataArray[3]);
                     boolean isGraduateAssistant = Boolean.parseBoolean(dataArray[4]);
+                    students[x] = new GraduateStudent(studentName, studentID, isEnrolled, coursesEnrolled, isGraduateAssistant);
                     x++;
                 }
             }
@@ -78,11 +80,11 @@ public class StudentDriver {
                 String studentName = dataArray[1];
                 boolean isEnrolled = Boolean.parseBoolean(dataArray[2]);
                 int noOfMonths = Integer.parseInt(dataArray[3]);
+                students[x] = new OnlineStudent(studentName, studentID, isEnrolled, noOfMonths);
                 x++;
             }
         }
     
-    double UGavg = 0.0;
     int scholarship = 0;
     int UGcourses = 0;
     for (StudentFees f : students){
@@ -97,7 +99,6 @@ public class StudentDriver {
         }
     }
     
-    double gradAvg = 0.0;
     int gradCount = 0;
     int GCourses = 0;
     for (StudentFees f : students)
@@ -140,7 +141,6 @@ public class StudentDriver {
             c++; 
         }
     }
-    
     }
     
 }

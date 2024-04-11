@@ -18,7 +18,11 @@ public class UGstudent extends StudentFees{
     
     public UGstudent(String studentName, int studentID, boolean isEnrolled, 
         boolean hasScholarship, double scholarshipAmount, int coursesEnrolled){
-        this(studentID,studentName,isEnrolled, coursesEnrolled, hasScholarship, scholarshipAmount);
+        this(studentName,studentID,isEnrolled, coursesEnrolled, hasScholarship, scholarshipAmount);
+    }
+
+    public UGstudent(String studentName, int studentID, boolean isEnrolled, int coursesEnrolled, boolean hasScholarship, double scholarshipAmount) {
+        this(studentID, studentName, isEnrolled, coursesEnrolled, hasScholarship, scholarshipAmount);
     }
 
     public UGstudent(int studentID, String studentName, boolean isEnrolled, int coursesEnrolled, boolean hasScholarship, double scholarshipAmount) {

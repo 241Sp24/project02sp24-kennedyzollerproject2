@@ -14,22 +14,32 @@ public class GraduateStudent extends StudentFees{
     private String graduateAssistantType;
     private double ADDITIONAL_FEES = 654.45;
     
-    public GraduateStudent(String studentName, int studentID, boolean isEnrolled, boolean isGraduateAssistant, 
-            String graduateAssistantType, int coursesEnrolled){
-        super(studentName,studentID,isEnrolled);
+    
+
+    
+
+    public GraduateStudent(String studentName, int studentID, boolean isEnrolled, int coursesEnrolled, boolean isGraduateAssistant, String graduateAssistantType) {
+        super(studentName, studentID, isEnrolled);
         this.isGraduateAssistant = isGraduateAssistant;
         this.graduateAssistantType = graduateAssistantType;
         this.coursesEnrolled = coursesEnrolled;
     }
     
+
+    
     public GraduateStudent(String studentName, int studentID, boolean isEnrolled, 
         boolean isGraduateAssistant, int coursesEnrolled){
-        super(studentName,studentID,isEnrolled);
+        this(studentName,studentID,isEnrolled, coursesEnrolled, isGraduateAssistant);
+        
+    }
+
+    public GraduateStudent(String studentName, int studentID, boolean isEnrolled, int coursesEnrolled, boolean isGraduateAssistant) {
+        super(studentName, studentID, isEnrolled);
         this.isGraduateAssistant = isGraduateAssistant;
         this.coursesEnrolled = coursesEnrolled;
         graduateAssistantType = "";
-        
     }
+
     
     public boolean isIsGraduateAssistant(){
         return isGraduateAssistant; 
